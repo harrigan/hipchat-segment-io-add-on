@@ -18,11 +18,23 @@
 
 A HipChat Add-On that provides an endpoint for Segment.io to post events to. The events are then sent to a HipChat room as notifications. The project is was started using the [HipChat Add-On Generator](https://github.com/logankoester/generator-hipchat-addon).
 
-![Screenshot](../blob/master/hipchat-segment-io-add-on.png?raw=true)
+![Screenshot](hipchat-segment-io-add-on.png?raw=true)
 
 ## Instructions
 
-This is a Sinatra application that uses MongoDB for storage. You can deploy it to a free environment on [Heroku](http://heroku.com) and [MongoLab](http://mongolab.com).
+This is a Sinatra application that uses MongoDB for storage. You need to clone it and deploy it to, say, [Heroku](http://heroku.com) and [MongoLab](http://mongolab.com).
+
+You will also need to set four environment variables as follows:
+* MONGO_URL=mongodb://username:password@database.mongolab.com:27739/database-name
+* BASE_URI=http://your-hipchat-add-on.herokuapp.com
+* HIPCHAT_SCOPES=send_notification
+* SESSION_SECRET=secret
+
+Then navigate to http://your-hipchat-add-on.herokuapp.com and install the HipChat Add-On.
+
+Finally, in your Segment.io account, enable the WebHook integration and set the WebHook URL to http://your-hipchat-add-on.herokuapp.com/segment_io/AccountId/RoomIdOrName.
+
+The HipChat room must already exist. You can retrieve the AccountId from the MongoDB database after you have installed the HipChat Add-On.
 
 ## Contributions
 
