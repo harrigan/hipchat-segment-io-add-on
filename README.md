@@ -16,7 +16,7 @@
      / ___ \ (_| | (_| |_____| |_| | | | |
     /_/   \_\__,_|\__,_|      \___/|_| |_|
 
-A HipChat Add-On that provides an endpoint for Segment.io to post events to. The events are then sent to a HipChat room as notifications. The project is was started using the [HipChat Add-On Generator](https://github.com/logankoester/generator-hipchat-addon).
+A [HipChat](http://www.hipchat.com) Add-On that provides an endpoint for [Segment.io](http://segment.io) to post events to. The events are then sent to a HipChat room as notifications. The project was started using the [HipChat Add-On Generator](https://github.com/logankoester/generator-hipchat-addon).
 
 ![Screenshot](hipchat-segment-io-add-on.png?raw=true)
 
