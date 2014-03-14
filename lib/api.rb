@@ -108,7 +108,7 @@ module SegmentIO
         account = Account.find(params[:account_id])
         access_token = HipChat::get_access_token account.hipchat_oauth_id, account.hipchat_oauth_secret
         action = Action::create params
-        unless action.is_a?(TrackAction) && action.event == "Loaded a Page"
+        if action.is_a?(TrackAction)
           HipChat::send_notification params[:room_id_or_name], action.to_s, access_token
         end
       end
