@@ -90,8 +90,7 @@ module SegmentIO
           account.hipchat_installed = false
           account.save
         else
-          # Uninstallation will continue anyway, we just can't
-          # track it to an account.
+          # Uninstallation will continue anyway, we just can't track it to an account
           raise NoAccountError
         end
       end
@@ -108,7 +107,7 @@ module SegmentIO
         account = Account.find(params[:account_id])
         access_token = HipChat::get_access_token account.hipchat_oauth_id, account.hipchat_oauth_secret
         action = Action::create params
-        if action.is_a?(TrackAction)
+        if action.is_a?(IdentifyAction) or action.is_a?(TrackAction)
           HipChat::send_notification params[:room_id_or_name], action.to_s, access_token
         end
       end
